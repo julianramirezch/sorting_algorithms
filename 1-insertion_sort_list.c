@@ -6,19 +6,19 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *div = NULL, *aux = NULL, *tmp = NULL;
+	listint_t *div1 = NULL, *aux = NULL, *tmp = NULL;
 
 	if (!*list || !list)
 		return;
 
 	if ((*list)->next)
 	{
-		div = *list;
-		div = div->next;
-		while (div)
+		div1 = *list;
+		div1 = div1->next;
+		while (div1)
 		{
-			aux = div;
-			div = div->next;
+			aux = div1;
+			div1 = div1->next;
 			while (aux->prev && aux->prev->n > aux->n)
 			{
 				tmp = aux->prev;
