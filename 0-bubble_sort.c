@@ -1,6 +1,22 @@
 #include "sort.h"
 
 /**
+ * swap - swap two items
+ * @a: Int
+ * @b: Int
+ */
+
+void swap(int *a, int *b)
+{
+	int aux;
+
+	aux = *a;
+	*a = *b;
+	*b = aux;
+}
+
+
+/**
  * bubble_sort - function that sorts an array using the Bubble sort algorithm
  * @array: Array
  * @size: Array size
