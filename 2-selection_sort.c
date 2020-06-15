@@ -23,8 +23,7 @@ void swap(int *a, int *b)
 
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j;
-	int num_index;
+	size_t i, j, num_index;
 
 	if (size < 2)
 		return;
@@ -38,6 +37,7 @@ void selection_sort(int *array, size_t size)
 				num_index = j;
 		}
 		swap(&array[num_index], &array[i]);
-		print_array(array, size);
+		if (num_index != i)
+			print_array(array, size);
 	}
 }
