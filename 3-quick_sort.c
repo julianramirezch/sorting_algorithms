@@ -60,5 +60,6 @@ void quick_sort(int *array, size_t size)
 {
 	int high = size - 1;
 
-	quick_sort2(array, 0, high, size);
+	if (size > 1)
+		quick_sort2(array, 0, high, size);
 }
