@@ -6,12 +6,12 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *div, *aux, *tmp = *list;
+	listint_t *div = NULL, *aux = NULL, *tmp = NULL;
 
 	if (!*list || !list)
 		return;
 
-	if (tmp->next)
+	if ((*list)->next)
 	{
 		div = *list;
 		div = div->next;
