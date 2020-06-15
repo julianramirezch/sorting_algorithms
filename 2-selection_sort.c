@@ -1,9 +1,24 @@
 #include "sort.h"
 
 /**
- * 
- * 
- * 
+ * swap - swap two items
+ * @a: Int
+ * @b: Int
+ */
+
+void swap(int *a, int *b)
+{
+	int aux;
+
+	aux = *a;
+	*a = *b;
+	*b = aux;
+}
+
+/**
+ * selection_sort - Selection sort algorithm
+ * @array: array
+ * @size: size of array
  */
 
 void selection_sort(int *array, size_t size)
