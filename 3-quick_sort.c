@@ -1,6 +1,21 @@
 #include "sort.h"
 
 /**
+ * swap - swap two items
+ * @a: Int
+ * @b: Int
+ */
+
+void swap(int *a, int *b)
+{
+	int aux;
+
+	aux = *a;
+	*a = *b;
+	*b = aux;
+}
+
+/**
  * partition - exceutes the partition process
  * @array: pointer to array to sort
  * @low: index of the low element
