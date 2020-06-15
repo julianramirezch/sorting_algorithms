@@ -1,28 +1,29 @@
 #include "sort.h"
 
 /**
- * 
- * 
- * 
+ * partition - exceutes the partition process
+ * @array: pointer to array to sort
+ * @low: index of the low element
+ * @high: index of the high element
+ * @size: size of array for partitioning
+ * Return: index o the partition
  */
 
 int partition(int *array, int low, int high, size_t size)
-{ 
-	int pivot = array[high];    // pivot 
-	int i = (low - 1);  // Index of smaller element 
+{
+	int pivot = array[high];
+	int i = (low - 1);
 
-	for (int j = low; j <= high - 1; j++) 
-	{ 
-	// If current element is smaller than or 
-	// equal to pivot 
-		if (array[j] <= pivot) 
-		{ 
-			i++;    // increment index of smaller element 
+	for (int j = low; j <= high - 1; j++)
+	{
+		if (array[j] <= pivot)
+		{
+			i++;
 			swap(&array[i], &array[j]);
 			if (i != j)
 				print_array(array, size);
 		}
-	} 
+	}
 	swap(&array[i + 1], &array[high]);
 	if (i + 1 != high)
 		print_array(array, size);
@@ -30,9 +31,12 @@ int partition(int *array, int low, int high, size_t size)
 }
 
 /**
- * 
- * 
- * 
+ * quick_sort2 - sorts an array of integers in ascending order
+ * using Quick Sort algorithm
+ * @array: pointer to array to sort
+ * @low: index of the low element
+ * @high: index of the high element
+ * @size: size of array to sort
  */
 void quick_sort2(int *array, int low, int high, size_t size)
 {
@@ -46,9 +50,10 @@ void quick_sort2(int *array, int low, int high, size_t size)
 	}
 }
 /**
- * 
- * 
- * 
+ * quick_sort - sorts an array of integers in ascending
+ * order using the Quick sort algorithm
+ * @array: pointer to array to sort
+ * @size: size of array to sort
  */
 
 void quick_sort(int *array, size_t size)
