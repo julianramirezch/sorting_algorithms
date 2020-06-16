@@ -11,30 +11,28 @@ void insertion_sort_list(listint_t **list)
 	if (!*list || !list)
 		return;
 
-	if ((*list)->next)
+	div1 = *list;
+	div1 = div1->next;
+	while (div1)
 	{
-		div1 = *list;
+		aux = div1;
 		div1 = div1->next;
-		while (div1)
+		while (aux->prev && aux->prev->n > aux->n)
 		{
-			aux = div1;
-			div1 = div1->next;
-			while (aux->prev && aux->prev->n > aux->n)
-			{
-				tmp = aux->prev;
-				aux->prev = tmp->prev;
-				if (aux->prev)
-					aux->prev->next = aux;
-				tmp->next = aux->next;
-				if (tmp->next)
-					tmp->next->prev = tmp;
-				tmp->prev = aux;
-				aux->next = tmp;
-				if (!aux->prev)
-					*list = aux;
-				print_list(*list);
-			}
-
+			tmp = aux->prev;
+			aux->prev = tmp->prev;
+			if (tmp->prev)
+				tmp->prev->next = aux;
+			tmp->next = aux->next;
+			if (tmp->next)
+				tmp->next->prev = tmp;
+			tmp->prev = aux;
+			aux->next = tmp;
+			if (!aux->prev)
+				*list = aux;
+			print_list(*list);
 		}
+
 	}
+
 }
