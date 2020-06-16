@@ -6,32 +6,36 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *div1 = NULL, *aux = NULL;
+	listint_t *div1 = NULL, *aux = NULL, *tmp = NULL;
 
 	if (!*list || !list)
 		return;
 
-	div1 = *list;
-	div1 = div1->next;
-	while (div1)
+	if ((*list)->next)
 	{
-		aux = div1;
+		div1 = *list;
 		div1 = div1->next;
-		while (aux->prev && aux->n < aux->prev->n)
+		while (div1)
 		{
-			aux->prev->next = aux->next;
-			if (aux->next)
-				aux->next->prev = aux->prev;
-			aux->next = aux->prev;
-			aux->prev = aux->next->prev;
-			aux->next->prev = aux;
-			if (aux->prev)
-				aux->prev->next = aux;
-			else
-				*list = aux;
-			print_list(*list);
+			aux = div1;
+			div1 = div1->next;
+			while (aux->prev && aux->prev->n > aux->n)
+			{
+				tmp = aux->prev;
+				aux->prev = tmp->prev;
+				if (tmp->prev)
+					tmp->prev->next = aux;
+				tmp->next = aux->next;
+				if (tmp->next)
+					tmp->next->prev = tmp;
+				tmp->prev = aux;
+				aux->next = tmp;
+				if (!aux->prev)
+					*list = aux;
+				tmp = *list,
+				print_list(tmp);
+			}
+
 		}
 	}
-
 }
-
