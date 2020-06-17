@@ -11,7 +11,7 @@ void radix_sort(int *array, size_t size)
 	int *ptr_arr, divisor = 10, max_num = 0, max_div = 10, rem;
 	size_t counter = 0;
 
-	if (!array || size == 0)
+	if (size == 1 || size == 0)
 		return;
 /*Malloc for temporal array*/
 	ptr_arr = malloc(sizeof(int) * size);
