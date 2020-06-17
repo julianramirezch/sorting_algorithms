@@ -34,5 +34,6 @@ void swap(int *a, int *b);
 int partition(int *array, int low, int high, size_t size);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
+void swap_node(listint_t *node_prev, listint_t *node);
 
 #endif
