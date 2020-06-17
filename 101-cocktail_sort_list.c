@@ -12,42 +12,39 @@ void cocktail_sort_list(listint_t **list)
 	if (!list || !*list)
 		return;
 
-	if ((*list)->next)
+	first = *list;
+	while (first->next != last)
 	{
-		first = *list;
-		while (first->next != last)
+		/*Move pointer from first until last node*/
+		node = first;
+		while (node->next != last)
 		{
-			/*Move pointer from first until last node*/
-			node = first;
-			while (node->next != last)
+			if (node->n > node->next->n)
 			{
-				if (node->n > node->next->n)
-				{
-					if (node == *list)
-						*list = node->next;
-					swap_node(node, node->next);
-					print_list(*list);
-				}
-				else
-					node = node->next;
+				if (node == *list)
+					*list = first = node->next;
+				swap_node(node, node->next);
+				print_list(*list);
 			}
-			/*Move pointer from last until first node*/
-			last = node;
-			node = node->prev;
-			while (node != first)
-			{
-				if (node->prev != NULL && node->n < node->prev->n)
-				{
-					if (node->prev == *list)
-						*list = first = node;
-					swap_node(node->prev, node);
-					print_list(*list);
-				}
-				else
-					node = node->prev;
-			}
-			first = node;
+			else
+				node = node->next;
 		}
+		/*Move pointer from last until first node*/
+		last = node;
+		node = node->prev;
+		while (node != first)
+		{
+			if (node->prev != NULL && node->n < node->prev->n)
+			{
+				if (node->prev == *list)
+					*list = first = node;
+				swap_node(node->prev, node);
+				print_list(*list);
+			}
+			else
+				node = node->prev;
+		}
+		first = node;
 	}
 }
 /**
